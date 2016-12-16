@@ -1,0 +1,82 @@
+/* line 3, ../scss/slider.scss */
+.slider {
+  position: relative;
+  margin-bottom: 30px;
+  width: 694px;
+}
+/* line 9, ../scss/slider.scss */
+.slider .slider-window {
+  width: 680px;
+  overflow: hidden;
+  margin: 3px 2px;
+}
+/* line 14, ../scss/slider.scss */
+.slider .slider-list {
+  width: 200000px;
+}
+/* line 17, ../scss/slider.scss */
+.slider .slider-item {
+  float: left;
+  text-align: center;
+  width: 257px;
+  box-sizing: border-box;
+}
+/* line 24, ../scss/slider.scss */
+.slider .slider-item a {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+/* line 31, ../scss/slider.scss */
+.slider .slider-pre {
+  left: 20px;
+  margin-left: 16px;
+}
+/* line 36, ../scss/slider.scss */
+.slider .slider-next {
+  right: 20px;
+  margin-right: 16px;
+}
+/* line 42, ../scss/slider.scss */
+.slider .slider-next, .slider .slider-pre {
+  position: absolute;
+  top: 50%;
+  margin-top: -18px;
+  height: 40px;
+  width: 40px;
+  z-index: 2;
+  cursor: pointer;
+  background-color: red;
+}
+/* line 52, ../scss/slider.scss */
+.slider .slider-nav {
+  position: absolute;
+  right: 45px;
+  bottom: 25px;
+  margin: auto;
+  text-align: center;
+}
+/* line 58, ../scss/slider.scss */
+.slider .slider-nav li {
+  position: relative;
+  width: 28px;
+  display: inline-block;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* line 72, ../scss/slider.scss */
+.slider .slider-desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  padding-left: 40px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  height: 60px;
+  line-height: 60px;
+  font-size: 24px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+}

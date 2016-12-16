@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/slider.css">
+</head>
+<body>
+    <div class="slider clearfix">
+        <div class="slider-window clearfix">
+            <ul class="slider-list clearfix">  
+                <li data-index=0 class="slider-item active">
+                    <a href="javascript:;">
+                        <img width=100 height=100 src="img/vm.png" alt="虚拟机">
+                        <p class="item-name">0</p>
+                        
+                    </a>
+
+                </li>
+                <li data-index=1 class="slider-item">
+                    <a href="javascript:;">
+                        <img width=100 height=100 src="img/vm.png" alt="虚拟机">
+                        <p class="item-name">1</p>
+                        
+                    </a>
+                    
+                </li>
+                <li data-index=2 class="slider-item">
+                    <a href="javascript:;">
+                        <img width=100 height=100 src="img/vm.png" alt="虚拟机">
+                        <p class="item-name">2</p>
+                        
+                    </a>
+                    
+                </li>
+                <li data-index=3 class="slider-item">
+                    <a href="javascript:;">
+                        <img width=100 height=100 src="img/vm.png" alt="虚拟机">
+                        <p class="item-name">3</p>
+                        
+                    </a>
+                    
+                </li>
+                <li data-index=4 class="slider-item">
+                    <a href="javascript:;">
+                        <img width=100 height=100 src="img/vm.png" alt="虚拟机">
+                        <p class="item-name">4</p>
+                        
+                    </a>
+                    
+                </li>
+            </ul>
+        </div>
+        <i class="slider-pre">前</i>
+        <i class="slider-next">后</i>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <!-- <script src="./js/slider-default.js"></script> -->
+    <script>
+        $('.slider').slider({
+            itemNbr:3
+        });
+    </script>
+</body>
+</html>
