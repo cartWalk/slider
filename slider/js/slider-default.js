@@ -1,5 +1,5 @@
 // 轮播-1
-
+// var $ = require('jquery');
 (function(fn){
     if(typeof module === "object" && typeof module.exports === "object"){
         module.exports = fn();
@@ -15,7 +15,7 @@
                 sliderItem : $('.slider-item'),  //listitem
                 pre : $('.slider-pre'),                  //上一个
                 next : $('.slider-next'),                //下一个
-                marginLeft : 0,                                  //item之间的间隙
+                marginRight : 0,                                  //item之间的间隙
                 moveGap : 2000,                                  // 运动的间隙 ms
                 moveDuration : 1,                            // 运动的时间 s
                 sliderNav : $('.slider-nav li'),  // 图片导航
@@ -37,8 +37,8 @@
         // var totalPage = 3; 
         // var curPage = 1;
         var itemNbr = options.itemNbr; //一屏有几个元素
-        var marginLeft = parseInt($sliderItem.eq(0).css('margin-right')); // 元素与元素之间的距离
-        var itemWidth = $sliderItem.width() + marginLeft; // 一个元素的宽度+margin
+        var marginRight = parseFloat($sliderItem.eq(0).css('margin-right')); // 元素与元素之间的距离
+        var itemWidth = $sliderItem.width() + marginRight; // 一个元素的宽度+margin
         var len = $sliderItem.length; //原始列表长度
         var OFFSET = ''; // 常量 一屏的宽度
         var nowMarginLeft = OFFSET = -(itemWidth * itemNbr);
@@ -49,7 +49,7 @@
         var lastWindowHtml = '';  // 最后一屏的html        
         for(var i = 0; i < itemNbr; i++){
             firstWindowHtml += $sliderItem[i].outerHTML;
-            lastWindowHtml += $sliderItem[len - i - 1].outerHTML;
+            lastWindowHtml += $sliderItem[len - itemNbr + i].outerHTML;
         }     
 
         init();
@@ -104,7 +104,7 @@
                 reset(index);
 
                 // 设置list长度
-                var sliderWidth = (itemWidth) * (len + itemNbr*2);
+                var sliderWidth = Math.ceil((itemWidth) * (len + itemNbr*2 + 1));
                 $sliderList.css({
                     'width': sliderWidth
                 });
@@ -112,7 +112,10 @@
                 // 自动轮播
                 play()
 
-                options.callBack(index);
+                if(options.callBack){
+                    options.callBack(index);
+                }
+                
         }
 
 
@@ -143,9 +146,9 @@
         function play(){
             // 每两秒 自动滑动 一屏幕
             if(!options.isAutoPlay){ return;}
-            animate(OFFSET);
-            index ++ ;
             timer = setTimeout(function(){
+                animate(OFFSET);
+                index ++ ;
                 play();
             },moveGap);
         }
@@ -176,6 +179,7 @@
                         'transform':'translate3D(' + nowMarginLeft + 'px, 0, 0)',
                         'transition':''
                     });
+                    index ++;
                 }
             }else{
                 if(id > MAX_INDEX){ // 如果最后一屏
@@ -190,6 +194,7 @@
                 }
                 if(id == 0){
                     $sliderList.css('margin-left', nowMarginLeft);
+                    index ++;
                 }
             }
             $sliderNav.siblings().removeClass('active').eq(index).addClass('active');
